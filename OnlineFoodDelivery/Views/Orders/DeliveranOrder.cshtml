@@ -1,0 +1,34 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Deliver Order</h2>
+
+<form action="/Orders/fnDeliverOrder" method="post">
+    <div>
+        <input type="hidden" id="OrderID" name="OrderID" value="@ViewBag.ordrId" />
+    </div>
+    <div>
+        <div><label>Customer Details</label></div>
+        <input type="text" placeholder="Customer Details" value="@ViewBag.custmer" readonly="readonly" />
+    </div>
+    <div>
+        <div><label>Order Details</label></div>
+        <input type="text" placeholder="Order Details" value="@ViewBag.order" readonly="readonly" />
+    </div>
+
+    <div>
+        <div><label>Delivery Date</label></div>
+        <input type="date" placeholder="Delivery Date" id="DeliveryDate" name="DeliveryDate" />
+    </div>
+
+    <div>
+        <div><label>Delivery Time</label></div>
+        <input type="time" placeholder="Delivery Time" id="DeliveryTime" name="DeliveryTime" />
+    </div>
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+
+

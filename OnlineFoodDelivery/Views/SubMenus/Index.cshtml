@@ -1,0 +1,73 @@
+﻿@model IEnumerable<OnlineFoodDelivery.Models.SubMenu>
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sub Menue List </h2>
+
+
+<div class="row">
+    <form action="/SubMenus/Index" method="get">
+        @Html.DropDownList("RestaurantID", null, "")
+        <button type="submit">Search</button>
+    </form>
+</div>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Restaurant Name
+        </th>
+        <th>
+            Main Menu
+        </th>
+        <th>
+            Sub Menu
+        </th>
+        <th>
+            Size
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MainMenu.Restaurant.RestuarantName
+            </td>
+            <td>
+                @item.MainMenu.MainMenuName
+            </td>
+            <td>
+                @item.SubMenu1
+            </td>
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.mySubMenuID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.mySubMenuID })
+            </td>
+        </tr>
+    }
+
+</table>

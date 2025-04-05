@@ -1,0 +1,37 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Cancel Order</h2>
+
+<form  action="/Orders/fnCancellOrder" method="post">
+    <div>
+        <input type="hidden" id="OrderID" name="OrderID" value="@ViewBag.ordrId" />
+    </div>
+    <div>
+        <div><label>Customer Details</label></div>
+        <input type="text" placeholder="Customer Details" value="@ViewBag.custmer" readonly="readonly" />
+    </div>
+    <div>
+        <div><label>Order Details</label></div>
+        <input type="text" placeholder="Order Details" value="@ViewBag.order" readonly="readonly" />
+    </div>
+
+    <div>
+        <div><label>Cancellation Date</label></div>
+        <input type="date" placeholder="Cancellation Date" id="CancellationDate" name="CancellationDate" />
+    </div>
+
+    <div>
+        <div><label>Cancellation Time</label></div>
+        <input type="time" placeholder="Cancellation Time" id="SentToKitchenTime" name="SentToKitchenTime" />
+    </div>
+    <div>
+        <div><label>Cancellation Reason</label></div>
+        <textarea placeholder="Cancellation Reason" id="CancelaltionReason" name="CancelaltionReason" rows="2"></textarea>
+    </div>
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+

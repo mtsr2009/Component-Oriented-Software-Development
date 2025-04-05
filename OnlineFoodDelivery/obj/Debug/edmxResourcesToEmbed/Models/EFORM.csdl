@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComponentOrientedMasterProgramModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="myConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="ComponentOrientedMasterProgramModel.Customer" />
+    <EntitySet Name="MainMenus" EntityType="ComponentOrientedMasterProgramModel.MainMenu" />
+    <EntitySet Name="Orders" EntityType="ComponentOrientedMasterProgramModel.Order" />
+    <EntitySet Name="Restaurants" EntityType="ComponentOrientedMasterProgramModel.Restaurant" />
+    <EntitySet Name="SubMenus" EntityType="ComponentOrientedMasterProgramModel.SubMenu" />
+    <EntitySet Name="Users" EntityType="ComponentOrientedMasterProgramModel.User" />
+    <EntitySet Name="vOrders" EntityType="ComponentOrientedMasterProgramModel.vOrder" />
+    <AssociationSet Name="FK_Customer_Restaurant" Association="ComponentOrientedMasterProgramModel.FK_Customer_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurants" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_MainMenu" Association="ComponentOrientedMasterProgramModel.FK_Order_MainMenu">
+      <End Role="MainMenu" EntitySet="MainMenus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Restaurant" Association="ComponentOrientedMasterProgramModel.FK_Order_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurants" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_SubMenu" Association="ComponentOrientedMasterProgramModel.FK_Order_SubMenu">
+      <End Role="SubMenu" EntitySet="SubMenus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Restaurant" Association="ComponentOrientedMasterProgramModel.FK_Staff_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurants" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantID" Type="Int32" />
+    <Property Name="CustomerFullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Restaurant" Relationship="ComponentOrientedMasterProgramModel.FK_Customer_Restaurant" FromRole="Customer" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="MainMenu">
+    <Key>
+      <PropertyRef Name="MainMenuID" />
+    </Key>
+    <Property Name="MainMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantID" Type="Int32" />
+    <Property Name="MainMenuName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="ComponentOrientedMasterProgramModel.FK_Order_MainMenu" FromRole="MainMenu" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="MainMenuID" Type="Int32" />
+    <Property Name="SubMenuID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SentToKitchenDate" Type="DateTime" Precision="0" />
+    <Property Name="SentToKitchenTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancellationDate" Type="DateTime" Precision="0" />
+    <Property Name="CancellationTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancelaltionReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="DeliveryTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStatus" Type="Int32" />
+    <NavigationProperty Name="MainMenu" Relationship="ComponentOrientedMasterProgramModel.FK_Order_MainMenu" FromRole="Order" ToRole="MainMenu" />
+    <NavigationProperty Name="Restaurant" Relationship="ComponentOrientedMasterProgramModel.FK_Order_Restaurant" FromRole="Order" ToRole="Restaurant" />
+    <NavigationProperty Name="SubMenu" Relationship="ComponentOrientedMasterProgramModel.FK_Order_SubMenu" FromRole="Order" ToRole="SubMenu" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="RestaurantID" />
+    </Key>
+    <Property Name="RestaurantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestuarantName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="ComponentOrientedMasterProgramModel.FK_Customer_Restaurant" FromRole="Restaurant" ToRole="Customer" />
+    <NavigationProperty Name="Orders" Relationship="ComponentOrientedMasterProgramModel.FK_Order_Restaurant" FromRole="Restaurant" ToRole="Order" />
+    <NavigationProperty Name="Users" Relationship="ComponentOrientedMasterProgramModel.FK_Staff_Restaurant" FromRole="Restaurant" ToRole="User" />
+  </EntityType>
+  <EntityType Name="SubMenu">
+    <Key>
+      <PropertyRef Name="SubMenuID" />
+    </Key>
+    <Property Name="SubMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainMenuID" Type="Int32" />
+    <Property Name="SubMenu1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Orders" Relationship="ComponentOrientedMasterProgramModel.FK_Order_SubMenu" FromRole="SubMenu" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantID" Type="Int32" />
+    <Property Name="StaffFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Restaurant" Relationship="ComponentOrientedMasterProgramModel.FK_Staff_Restaurant" FromRole="User" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="vOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="RestaurantID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="MainMenuID" Type="Int32" />
+    <Property Name="SubMenuID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SentToKitchenDate" Type="DateTime" Precision="0" />
+    <Property Name="SentToKitchenTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancellationDate" Type="DateTime" Precision="0" />
+    <Property Name="CancellationTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancelaltionReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="DeliveryTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStatus" Type="Int32" />
+    <Property Name="RestuarantName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerFullName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MainMenuName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SubMenu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Customer_Restaurant">
+    <End Type="ComponentOrientedMasterProgramModel.Restaurant" Role="Restaurant" Multiplicity="0..1" />
+    <End Type="ComponentOrientedMasterProgramModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_MainMenu">
+    <End Type="ComponentOrientedMasterProgramModel.MainMenu" Role="MainMenu" Multiplicity="0..1" />
+    <End Type="ComponentOrientedMasterProgramModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MainMenuID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SubMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Restaurant">
+    <End Type="ComponentOrientedMasterProgramModel.Restaurant" Role="Restaurant" Multiplicity="0..1" />
+    <End Type="ComponentOrientedMasterProgramModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_SubMenu">
+    <End Type="ComponentOrientedMasterProgramModel.SubMenu" Role="SubMenu" Multiplicity="0..1" />
+    <End Type="ComponentOrientedMasterProgramModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubMenu">
+        <PropertyRef Name="SubMenuID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SubMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Restaurant">
+    <End Type="ComponentOrientedMasterProgramModel.Restaurant" Role="Restaurant" Multiplicity="0..1" />
+    <End Type="ComponentOrientedMasterProgramModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

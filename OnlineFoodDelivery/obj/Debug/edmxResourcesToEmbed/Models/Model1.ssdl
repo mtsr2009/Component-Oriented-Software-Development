@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComponentOrientedMasterProgramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerFullName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contact" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MainMenu">
+    <Key>
+      <PropertyRef Name="MainMenuID" />
+    </Key>
+    <Property Name="MainMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="MainMenuName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="mySubMenuID" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" />
+    <Property Name="Time" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SentToKitchenDate" Type="datetime2" Precision="7" />
+    <Property Name="SentToKitchenTime" Type="nvarchar(max)" />
+    <Property Name="CancellationDate" Type="datetime2" Precision="7" />
+    <Property Name="CancellationTime" Type="nvarchar(max)" />
+    <Property Name="CancelaltionReason" Type="nvarchar(max)" />
+    <Property Name="DeliveryDate" Type="datetime2" Precision="7" />
+    <Property Name="DeliveryTime" Type="nvarchar(max)" />
+    <Property Name="OrderStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="RestaurantID" />
+    </Key>
+    <Property Name="RestaurantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestuarantName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contact" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubMenu">
+    <Key>
+      <PropertyRef Name="mySubMenuID" />
+    </Key>
+    <Property Name="mySubMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="SubMenu1" Type="nvarchar(max)" />
+    <Property Name="Size" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="StaffFullName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ComponentOrientedMasterProgram.dbo.vOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="mySubMenuID" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" />
+    <Property Name="Time" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SentToKitchenDate" Type="datetime2" Precision="7" />
+    <Property Name="SentToKitchenTime" Type="nvarchar(max)" />
+    <Property Name="CancellationDate" Type="datetime2" Precision="7" />
+    <Property Name="CancellationTime" Type="nvarchar(max)" />
+    <Property Name="CancelaltionReason" Type="nvarchar(max)" />
+    <Property Name="DeliveryDate" Type="datetime2" Precision="7" />
+    <Property Name="DeliveryTime" Type="nvarchar(max)" />
+    <Property Name="OrderStatus" Type="int" />
+    <Property Name="RestuarantName" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="CustomerFullName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="MainMenuName" Type="nvarchar(max)" />
+    <Property Name="SubMenu1" Type="nvarchar(max)" />
+    <Property Name="Size" Type="nvarchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_customers_Restaurants_RestaurantID">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mainMenus_Restaurants_RestaurantID">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="MainMenu">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_customers_CustomerID">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_mainMenus_MainMenuID">
+    <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MainMenuID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="MainMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Restaurants_RestaurantID">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubMenus_mainMenus_MainMenuID">
+    <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="0..1" />
+    <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MainMenuID" />
+      </Principal>
+      <Dependent Role="SubMenu">
+        <PropertyRef Name="MainMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Restaurants_RestaurantID">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ComponentOrientedMasterProgramModelStoreContainer">
+    <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainMenu" EntityType="Self.MainMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vOrder" EntityType="Self.vOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vOrder].[OrderID] AS [OrderID], 
+    [vOrder].[RestaurantID] AS [RestaurantID], 
+    [vOrder].[CustomerID] AS [CustomerID], 
+    [vOrder].[MainMenuID] AS [MainMenuID], 
+    [vOrder].[mySubMenuID] AS [mySubMenuID], 
+    [vOrder].[Date] AS [Date], 
+    [vOrder].[Time] AS [Time], 
+    [vOrder].[Quantity] AS [Quantity], 
+    [vOrder].[SentToKitchenDate] AS [SentToKitchenDate], 
+    [vOrder].[SentToKitchenTime] AS [SentToKitchenTime], 
+    [vOrder].[CancellationDate] AS [CancellationDate], 
+    [vOrder].[CancellationTime] AS [CancellationTime], 
+    [vOrder].[CancelaltionReason] AS [CancelaltionReason], 
+    [vOrder].[DeliveryDate] AS [DeliveryDate], 
+    [vOrder].[DeliveryTime] AS [DeliveryTime], 
+    [vOrder].[OrderStatus] AS [OrderStatus], 
+    [vOrder].[RestuarantName] AS [RestuarantName], 
+    [vOrder].[Country] AS [Country], 
+    [vOrder].[CustomerFullName] AS [CustomerFullName], 
+    [vOrder].[Address] AS [Address], 
+    [vOrder].[MainMenuName] AS [MainMenuName], 
+    [vOrder].[SubMenu1] AS [SubMenu1], 
+    [vOrder].[Size] AS [Size], 
+    [vOrder].[Price] AS [Price]
+    FROM [dbo].[vOrder] AS [vOrder]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_customers_Restaurants_RestaurantID" Association="Self.FK_customers_Restaurants_RestaurantID">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mainMenus_Restaurants_RestaurantID" Association="Self.FK_mainMenus_Restaurants_RestaurantID">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="MainMenu" EntitySet="MainMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_customers_CustomerID" Association="Self.FK_Orders_customers_CustomerID">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_mainMenus_MainMenuID" Association="Self.FK_Orders_mainMenus_MainMenuID">
+      <End Role="MainMenu" EntitySet="MainMenu" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Restaurants_RestaurantID" Association="Self.FK_Orders_Restaurants_RestaurantID">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenus_mainMenus_MainMenuID" Association="Self.FK_SubMenus_mainMenus_MainMenuID">
+      <End Role="MainMenu" EntitySet="MainMenu" />
+      <End Role="SubMenu" EntitySet="SubMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Restaurants_RestaurantID" Association="Self.FK_Users_Restaurants_RestaurantID">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

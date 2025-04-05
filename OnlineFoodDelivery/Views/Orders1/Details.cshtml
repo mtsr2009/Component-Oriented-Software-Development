@@ -1,0 +1,138 @@
+﻿@model OnlineFoodDelivery.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mySubMenuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mySubMenuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentToKitchenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentToKitchenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentToKitchenTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentToKitchenTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CancellationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CancellationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CancellationTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CancellationTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CancelaltionReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CancelaltionReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustomerFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustomerFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainMenu.MainMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainMenu.MainMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.RestuarantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.RestuarantName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

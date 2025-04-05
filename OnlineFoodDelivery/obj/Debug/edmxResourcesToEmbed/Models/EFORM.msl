@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ComponentOrientedMasterProgramModelStoreContainer" CdmEntityContainer="myConnection">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CustomerFullName" ColumnName="CustomerFullName" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MainMenus">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.MainMenu">
+        <MappingFragment StoreEntitySet="MainMenu">
+          <ScalarProperty Name="MainMenuName" ColumnName="MainMenuName" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+          <ScalarProperty Name="MainMenuID" ColumnName="MainMenuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="CancelaltionReason" ColumnName="CancelaltionReason" />
+          <ScalarProperty Name="CancellationTime" ColumnName="CancellationTime" />
+          <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+          <ScalarProperty Name="SentToKitchenTime" ColumnName="SentToKitchenTime" />
+          <ScalarProperty Name="SentToKitchenDate" ColumnName="SentToKitchenDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SubMenuID" ColumnName="SubMenuID" />
+          <ScalarProperty Name="MainMenuID" ColumnName="MainMenuID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurants">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurant">
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="RestuarantName" ColumnName="RestuarantName" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubMenus">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.SubMenu">
+        <MappingFragment StoreEntitySet="SubMenu">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SubMenu1" ColumnName="SubMenu" />
+          <ScalarProperty Name="MainMenuID" ColumnName="MainMenuID" />
+          <ScalarProperty Name="SubMenuID" ColumnName="SubMenuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StaffFullName" ColumnName="StaffFullName" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vOrders">
+      <EntityTypeMapping TypeName="ComponentOrientedMasterProgramModel.vOrder">
+        <MappingFragment StoreEntitySet="vOrder">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SubMenu" ColumnName="SubMenu" />
+          <ScalarProperty Name="MainMenuName" ColumnName="MainMenuName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CustomerFullName" ColumnName="CustomerFullName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="RestuarantName" ColumnName="RestuarantName" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="CancelaltionReason" ColumnName="CancelaltionReason" />
+          <ScalarProperty Name="CancellationTime" ColumnName="CancellationTime" />
+          <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+          <ScalarProperty Name="SentToKitchenTime" ColumnName="SentToKitchenTime" />
+          <ScalarProperty Name="SentToKitchenDate" ColumnName="SentToKitchenDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SubMenuID" ColumnName="SubMenuID" />
+          <ScalarProperty Name="MainMenuID" ColumnName="MainMenuID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

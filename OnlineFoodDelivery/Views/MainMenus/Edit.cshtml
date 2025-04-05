@@ -1,0 +1,33 @@
+﻿@model OnlineFoodDelivery.Models.MainMenu
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Main Menu</h2>
+
+
+<form action="/MainMenus/Edit" method="post">
+    <input type="hidden" id="MainMenuID" name="MainMenuID" value="@Model.MainMenuID" />
+    <div>
+        <div><label>Restaurant Name</label></div>
+        @Html.DropDownList("RestaurantID", null, "")
+    </div>
+    <div>
+        <div><label>Restaurant Name</label></div>
+        <input type="text" id="MainMenuName" name="MainMenuName" value="@Model.MainMenuName" />
+    </div>
+
+    <div>
+        <button type="submit">Save Changes</button>
+    </div>
+
+</form>
+

@@ -1,0 +1,52 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Place Order</h2>
+
+<form action="/Orders/nPlaceOrder" method="post">
+    <div>
+        <div><label>Customer Name</label></div>
+        <select>
+            <option id="CustomerName" name="CustomerName">Select Customer Name</option>
+            <option value="">Customer 1</option>
+        </select>
+    </div>
+
+    <div>
+        <div><label>Main Menu</label></div>
+        <select id="MainMenu" name="MainMenu">
+            <option>Select Main Menu</option>
+            <option value="">Pizza</option>
+            <option value="">Caffe</option>
+            <option value="">Juice</option>
+        </select>
+    </div>
+
+    <div>
+        <div><label>Sub Menu</label></div>
+        <select id="MainMenu" name="MainMenu">
+            <option>Select Sub Menu</option>
+            <option value="">Large</option>
+            <option value="">Medium</option>
+            <option value="">Small</option>
+        </select>
+    </div>
+    <div>
+        <div><label>Date and Time</label></div>
+        <input type="date" placeholder="date and Time" id="DateTime" name="DateTime" />
+    </div>
+    <div>
+        <div><label>Time</label></div>
+        <input type="time" placeholder="date and Time" id="Time" name="Time" />
+    </div>
+    <div>
+        <div><label>Quantity</label></div>
+        <input type="text" placeholder="Quantity" id="Quantity" name="Quantity" />
+    </div>
+
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+

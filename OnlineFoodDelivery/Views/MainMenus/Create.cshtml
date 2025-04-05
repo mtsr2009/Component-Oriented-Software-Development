@@ -1,0 +1,26 @@
+﻿@model OnlineFoodDelivery.Models.MainMenu
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Main Menu</h2>
+
+
+<form action="/MainMenus/Create" method="post">
+    <div>
+        <div><label>Restaurant Name</label></div>
+        @Html.DropDownList("RestaurantID", null, "")
+    </div>
+    <div>
+        <div><label>Restaurant Name</label></div>
+    <input type="text" id="MainMenuName" name="MainMenuName" />
+    </div>
+
+    <div>
+        <button type="submit">Create</button>
+    </div>
+
+</form>
+

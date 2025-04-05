@@ -1,0 +1,74 @@
+﻿@model OnlineFoodDelivery.Models.SubMenu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubMenu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubMenu1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubMenu1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainMenu.MainMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainMenu.MainMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant.RestuarantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant.RestuarantName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubMenuID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

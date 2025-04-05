@@ -1,0 +1,40 @@
+﻿@model OnlineFoodDelivery.Models.SubMenu
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Sub Menu</h2>
+
+
+<form action="/SubMenus/Create" method="post">
+    <div>
+        <label>Select Restaurant</label>
+        @Html.DropDownList("RestaurantID", null, "")
+    </div>
+    <div>
+        <label>Select Main Menu</label>
+        @Html.DropDownList("MainMenuID", null, "")
+    </div>
+    <div>
+        <label>Sub Menu</label>
+        <input type="text" id="SubMenu1" name="SubMenu1" />
+    </div>
+    <div>
+        <label>Size</label>
+        <input type="text" id="Size" name="Size" />
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input type="text" id="Quantity" name="Quantity" />
+    </div>
+    <div>
+        <label>Price</label>
+        <input type="text" id="Price" name="Price" />
+    </div>
+
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>
+

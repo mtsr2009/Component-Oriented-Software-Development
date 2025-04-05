@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComponentOrientedMasterProgramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerFullName" Type="nchar" MaxLength="10" />
+    <Property Name="Address" Type="nchar" MaxLength="10" />
+    <Property Name="Contact" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MainMenu">
+    <Key>
+      <PropertyRef Name="MainMenuID" />
+    </Key>
+    <Property Name="MainMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="MainMenuName" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="SubMenuID" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SentToKitchenDate" Type="date" />
+    <Property Name="SentToKitchenTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancellationDate" Type="date" />
+    <Property Name="CancellationTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancelaltionReason" Type="nvarchar" MaxLength="500" />
+    <Property Name="DeliveryDate" Type="date" />
+    <Property Name="DeliveryTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="RestaurantID" />
+    </Key>
+    <Property Name="RestaurantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestuarantName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Country" Type="nvarchar" MaxLength="200" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SubMenu">
+    <Key>
+      <PropertyRef Name="SubMenuID" />
+    </Key>
+    <Property Name="SubMenuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="SubMenu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Size" Type="nvarchar" MaxLength="200" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="StaffFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ComponentOrientedMasterProgram.dbo.vOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="RestaurantID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="MainMenuID" Type="int" />
+    <Property Name="SubMenuID" Type="int" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SentToKitchenDate" Type="date" />
+    <Property Name="SentToKitchenTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancellationDate" Type="date" />
+    <Property Name="CancellationTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancelaltionReason" Type="nvarchar" MaxLength="500" />
+    <Property Name="DeliveryDate" Type="date" />
+    <Property Name="DeliveryTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderStatus" Type="int" />
+    <Property Name="RestuarantName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Country" Type="nvarchar" MaxLength="200" />
+    <Property Name="CustomerFullName" Type="nchar" MaxLength="10" />
+    <Property Name="Address" Type="nchar" MaxLength="10" />
+    <Property Name="MainMenuName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SubMenu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Size" Type="nvarchar" MaxLength="200" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Customer_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_MainMenu">
+    <End Role="MainMenu" Type="Self.MainMenu" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MainMenu">
+        <PropertyRef Name="MainMenuID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SubMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_SubMenu">
+    <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubMenu">
+        <PropertyRef Name="SubMenuID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="SubMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Restaurant">
+    <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="RestaurantID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RestaurantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ComponentOrientedMasterProgramModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainMenu" EntityType="Self.MainMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Restaurant" EntityType="Self.Restaurant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vOrder" EntityType="Self.vOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vOrder].[OrderID] AS [OrderID], 
+    [vOrder].[RestaurantID] AS [RestaurantID], 
+    [vOrder].[CustomerID] AS [CustomerID], 
+    [vOrder].[MainMenuID] AS [MainMenuID], 
+    [vOrder].[SubMenuID] AS [SubMenuID], 
+    [vOrder].[Date] AS [Date], 
+    [vOrder].[Time] AS [Time], 
+    [vOrder].[Quantity] AS [Quantity], 
+    [vOrder].[SentToKitchenDate] AS [SentToKitchenDate], 
+    [vOrder].[SentToKitchenTime] AS [SentToKitchenTime], 
+    [vOrder].[CancellationDate] AS [CancellationDate], 
+    [vOrder].[CancellationTime] AS [CancellationTime], 
+    [vOrder].[CancelaltionReason] AS [CancelaltionReason], 
+    [vOrder].[DeliveryDate] AS [DeliveryDate], 
+    [vOrder].[DeliveryTime] AS [DeliveryTime], 
+    [vOrder].[OrderStatus] AS [OrderStatus], 
+    [vOrder].[RestuarantName] AS [RestuarantName], 
+    [vOrder].[Country] AS [Country], 
+    [vOrder].[CustomerFullName] AS [CustomerFullName], 
+    [vOrder].[Address] AS [Address], 
+    [vOrder].[MainMenuName] AS [MainMenuName], 
+    [vOrder].[SubMenu] AS [SubMenu], 
+    [vOrder].[Size] AS [Size], 
+    [vOrder].[Price] AS [Price]
+    FROM [dbo].[vOrder] AS [vOrder]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Customer_Restaurant" Association="Self.FK_Customer_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_MainMenu" Association="Self.FK_Order_MainMenu">
+      <End Role="MainMenu" EntitySet="MainMenu" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Restaurant" Association="Self.FK_Order_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_SubMenu" Association="Self.FK_Order_SubMenu">
+      <End Role="SubMenu" EntitySet="SubMenu" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Restaurant" Association="Self.FK_Staff_Restaurant">
+      <End Role="Restaurant" EntitySet="Restaurant" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

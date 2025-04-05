@@ -1,0 +1,40 @@
+﻿@model OnlineFoodDelivery.Models.Restaurant
+
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+<h2>Update Restaurant Details</h2>
+<form action="/Home/submittUpdate" method="post">
+    <div>
+        <input type="hidden" id="RestaurantID" name="RestaurantID" value="@Model.RestaurantID"/>
+    </div>
+    <div>
+        <div><label>Restuarant Name</label></div>
+        <input type="text" placeholder="Restuarant Name" id="RestuarantName" name="RestuarantName" value="@Model.RestuarantName"/>
+    </div>
+    <div>
+        <div><label>Country</label></div>
+        <input type="text" placeholder="Country" id="Country" name="Country" value="@Model.Country"/>
+    </div>
+    <div>
+        <div><label>State</label></div>
+        <input type="text" placeholder="" id="State" name="State" value="@Model.State"/>
+    </div>
+    <div>
+        <div><label>Address</label></div>
+        <input type="text" placeholder="Address" id="Address" name="Address" value="@Model.Address" />
+    </div>
+    <div>
+        <div><label>Contact</label></div>
+        <input type="text" placeholder="Contact" id="Contact" name="Contact" value="@Model.Contact"/>
+    </div>
+    <div>
+        <div><label>Email Address</label></div>
+        <input type="text" placeholder="Email Address" id="EmailAddress" name="EmailAddress" value="@Model.EmailAddress"/>
+    </div>
+
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+

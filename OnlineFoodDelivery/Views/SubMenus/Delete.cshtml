@@ -1,0 +1,24 @@
+﻿@model OnlineFoodDelivery.Models.SubMenu
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SubMenu</h4>
+    <hr />
+
+
+    <form action="/SubMenus/DeleteConfirmed" method="post">
+        <div>
+            <input type="hidden" id="mySubMenuID" name="mySubMenuID" value="@Model.mySubMenuID" />
+        </div>
+        <div class="form-actions no-color">
+            <button type="submit" value="Delete">Delete</button> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+   </form>
+</div>

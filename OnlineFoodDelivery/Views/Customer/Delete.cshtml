@@ -1,0 +1,19 @@
+﻿@model OnlineFoodDelivery.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <form action="/Customer/DeleteConfirmed" method="post">
+        <div>
+            <input type="hidden" id="CustomerID" name="CustomerID" value="@Model.CustomerID"/>
+        </div>
+        <button type="submit" value="Delete">Delete</button> |
+        <a href="/Customer/Index">Cancel</a>
+    </form>
+</div>
+

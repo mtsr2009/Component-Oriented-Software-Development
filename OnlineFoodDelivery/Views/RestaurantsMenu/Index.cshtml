@@ -1,0 +1,62 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Restaurant Menu List</h2>
+
+<div class="row">
+    <form action="/Customer/fnSearchByRestuarant" method="get">
+        <select>
+            <option value="">Search by Restaurant Name</option>
+            <option value="">Light Way Restaurant</option>
+            <option value="">more...</option>
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;  <a href="/RestaurantsMenu/CreateMenu">Create New Menu</a>
+</div>
+<hr />
+<div class="row">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th>Main Menu</th>
+                <th>Sub Menu</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Pizza</td>
+                <td>Vegitable Pizza</td>
+                <td>Large</td>
+                <td>1</td>
+                <td>5.00</td>
+                <td><a href="/RestaurantsMenu/UpdateMenu">Modify</a></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Pizza</td>
+                <td>Vegitable Pizza</td>
+                <td>Medium</td>
+                <td>1</td>
+                <td>3.00</td>
+                <td><a href="/RestaurantsMenu/UpdateMenu">Modify</a></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Pizza</td>
+                <td>Vegitable Pizza</td>
+                <td>Small</td>
+                <td>1</td>
+                <td>1.00</td>
+                <td><a href="/RestaurantsMenu/UpdateMenu">Modify</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

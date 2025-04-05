@@ -1,0 +1,48 @@
+﻿@model IEnumerable<OnlineFoodDelivery.Models.Restaurant>
+
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<br />
+<br />
+<div class="row">
+    <form action="/Home/Index" method="get">
+        @Html.DropDownList("RestaurantID", null, "All")
+        <button type="submit">Search</button>
+    </form>
+</div>
+<hr />
+<a href="/Home/Create">Create New Restaurant</a>
+<hr />
+
+<div class="row">
+    <table width="100%">
+        <thead>
+            <tr>
+                <th>Restuarant Name</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Email Address</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.RestuarantName</td>
+                    <td>@item.Country</td>
+                    <td>@item.State</td>
+                    <td>@item.Address</td>
+                    <td>@item.Contact</td>
+                    <td>@item.EmailAddress</td>
+                    <td>
+                        <a href="/Home/Update?id=@item.RestaurantID">Edit</a>
+                        <a href="/Home/Delete/@item.RestaurantID">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+    </table>
+</div>

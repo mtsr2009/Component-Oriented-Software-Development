@@ -1,0 +1,38 @@
+﻿
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @if (Convert.ToInt32(Session["IsUserLoggedIn"]) == 1)
+                {
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li> <a href="/Employee/Index">Staffs</a></li>
+                    <li> <a href="/Customer/Index">Customers</a></li>
+                    <li> <a href="/MainMenus/Index">Menus</a></li>
+                    <li> <a href="/SubMenus/Index">Sub Menus</a></li>
+                    <li> <a href="/Orders1/Index">All Orders</a></li>
+                    <li> <a href="/Orders/PendingOrder">Peinding</a></li>
+                    <li> <a href="/Orders/OngoingOrder">Ongoing</a></li>
+                    <li> <a href="/Orders/DeliveredOrder">Delivered </a></li>
+                    <li> <a href="/Orders/CancelledOrder">Cancelled</a></li>
+                    <li> <a href="/Orders1/Create">New</a></li>
+                    <li> <a href="/ResetPassword/Index">Change Password</a></li>
+                    if (Convert.ToInt32(Session["enableLogout"]) == 1)
+                    {
+                        <li> <a href="/Login/Logout">Logout</a></li>
+                    }
+                }
+                else
+                {
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li> <a href="/Orders1/Create">Place Order</a></li>
+                    <li> <a href="/Login/LoginIndex">Login</a></li>
+                    <li> <a href="/Customer/CreateCustomer">Sign Up</a></li>
+                }
+
+
+            </ul>
+
+        </div>
+    </div>
+</div>

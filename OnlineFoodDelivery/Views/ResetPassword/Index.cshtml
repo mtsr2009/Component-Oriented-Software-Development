@@ -1,0 +1,22 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Reset Password </h2>
+
+
+<form action="/ResetPassword/Resetpassword" method="post">
+    <div>
+        <div><label>New Password</label></div>
+        <input type="Password" placeholder="New Password" id="Password" name="Password" />
+    </div>
+    <div>
+        <div><label>Confirm Password</label></div>
+        <input type="password" placeholder="Confirm Password" id="ConfirmPassword" name="ConfirmPassword" />
+    </div>
+    <hr />
+    <div>
+        <button type="submit">Reset</button>
+    </div>
+
+</form>
+
+

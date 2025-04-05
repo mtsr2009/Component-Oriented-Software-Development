@@ -1,0 +1,38 @@
+﻿@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Create Menu</h2>
+
+<form action="/RestaurantsMenu/fnNewMenu" method="post">
+    <div>
+        <div><label>Main Menu</label></div>
+        <select>
+            <option>Select Main Menu</option>
+            <option></option>
+            <option value="">Pizza</option>
+            <option value="">Caffe</option>
+            <option value="">Juice</option>
+        </select>
+    </div>
+    <div>
+        <div><label>Sub Menu</label></div>
+        <input type="text" placeholder="Sub Menu" id="SubMenu" name="SubMenu" />
+    </div>
+    <div>
+        <div><label>Size</label></div>
+        <input type="text" placeholder="" id="Size" name="Size" />
+    </div>
+    <div>
+        <div><label>Quantity</label></div>
+        <input type="text" placeholder="Quantity" id="Quantity" name="Quantity" />
+    </div>
+    <div>
+        <div><label>Price</label></div>
+        <input type="text" placeholder="Price" id="Price" name="Price" />
+    </div>
+
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>

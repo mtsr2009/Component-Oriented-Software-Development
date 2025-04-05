@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OnlineFoodDelivery.Models.MainMenu>
+
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div class="row">
+    <form action="/MainMenus/Index" method="get">
+        @Html.DropDownList("RestaurantID", null, "")
+        <button type="submit">Search</button>
+    </form>
+</div>
+<hr />
+<p>
+    <a href="/MainMenus/Create">Create New Menu</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Restaurant Name
+        </th>
+        <th>
+            Main Menu Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Restaurant.RestuarantName
+            </td>
+            <td>
+                @item.MainMenuName
+            </td>
+            <td>
+                <a href="/MainMenus/Edit?id=@item.MainMenuID">Edit</a>
+                <a href="/MainMenus/Delete?id=@item.MainMenuID">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

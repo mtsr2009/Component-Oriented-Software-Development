@@ -1,0 +1,38 @@
+﻿@model OnlineFoodDelivery.Models.Customer
+
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+<h2>Update Customer</h2>
+
+<form action="/Customer/fnUpdateCustomer" method="post">
+    <div>
+        <input type="hidden" id="CustomerID" name="CustomerID" value="@Model.CustomerID" />
+    </div>
+    <div>
+        <div><label>Restaurant Name</label></div>
+        @Html.DropDownList("RestaurantID", null, "")
+    </div>
+    <div>
+        <div><label>Customer Full Name</label></div>
+        <input type="text" placeholder="Customer Full Name" id="CustomerFullName" name="CustomerFullName" value="@Model.CustomerFullName" />
+    </div>
+    <div>
+        <div><label>Address</label></div>
+        <input type="text" placeholder="Address" id="Address" name="Address" value="@Model.Address" />
+    </div>
+    <div>
+        <div><label>Contact</label></div>
+        <input type="text" placeholder="Contact" id="Contact" name="Contact" value="@Model.Contact" />
+    </div>
+    <div>
+        <div><label>Email</label></div>
+        <input type="text" placeholder="Email" id="Email" name="Email" value="@Model.Email" />
+    </div>
+
+    <hr />
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+

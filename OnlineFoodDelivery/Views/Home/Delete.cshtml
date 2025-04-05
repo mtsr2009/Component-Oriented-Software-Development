@@ -1,0 +1,20 @@
+﻿
+@model OnlineFoodDelivery.Models.Restaurant
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+
+<form action="/Home/DeleteConfirmed" method="post">
+    <div>
+        <input type="hidden" id="RestaurantID" name="RestaurantID" value="@Model.RestaurantID" />
+    </div>
+    <button type="submit">Delete</button> |
+    <a href="/Home/Index">Cancel</a>
+</form>

@@ -1,0 +1,40 @@
+﻿@model OnlineFoodDelivery.Models.Order
+@Html.Partial("~/Views/_PageNavigation.cshtml")
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Placed Order</h2>
+
+<form action="/Orders1/Edit" method="post">
+    <input type="hidden" id="OrderID" name="OrderID" value="@Model.OrderID" />
+    <div>
+        <div><label>Customer Name</label></div>
+        @Html.DropDownList("CustomerID", null, "")
+    </div>
+    <div>
+        <div><label>Restaurant Name</label></div>
+        @Html.DropDownList("RestaurantID", null, "")
+    </div>
+    <div>
+        <div><label>Select Order</label></div>
+        @Html.DropDownList("mySubMenuID", null, "")
+    </div>
+
+    <div>
+        <div><label>Quantity</label></div>
+        <input type="text" placeholder="Quantity" id="Quantity" name="Quantity" value="@Model.Quantity" />
+    </div>
+    <div>
+        <div><label>Order Date</label></div>
+        <input type="date" placeholder="Date" id="Date" name="Date" value="@Model.Date" />
+    </div>
+    <div>
+        <div><label>Order Time</label></div>
+        <input type="time" placeholder="Time" id="Time" name="Time" value="@Model.Time" />
+    </div>
+    <div>
+        <button type="submit">Edit</button>
+    </div>
+</form>
+
